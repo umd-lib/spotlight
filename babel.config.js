@@ -54,7 +54,12 @@ module.exports = function(api) {
         }
       ],
       [
-        '@babel/plugin-proposal-private-methods',
+        // UMD Customization
+        // Modified to fix asset pre-compilation error (this plugin is the
+        // replacement for '@babel/plugin-proposal-private-methods',
+        // see https://www.npmjs.com/package/@babel/plugin-proposal-private-methods
+        '@babel/plugin-transform-private-methods',
+        // End UMD Customization
         {
           loose: true
         }

@@ -26,7 +26,15 @@ Rails.application.configure do
 
   # Compress CSS using a preprocessor.
   # config.assets.css_compressor = :sass
-  config.assets.js_compressor = :uglifier
+
+  # UMD Customization
+  # Specifying "harmony: true" to fix a
+  # "Uglifier::Error: Unexpected token: keyword (const). To use ES6 syntax,
+  # harmony mode must be enabled with Uglifier.new(:harmony => true)." error
+  # when pre-compiling the assets in production.
+  # See https://github.com/AlexanderPavlenko/sprockets_uglifier_with_source_maps/issues/9#issuecomment-499217994
+  config.assets.js_compressor = Uglifier.new(harmony: true)
+  # End UMD Customization
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
