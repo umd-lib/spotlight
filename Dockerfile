@@ -81,7 +81,6 @@ ENV NODE_OPTIONS=--openssl-legacy-provider
 ENV SKIP_TRANSLATION=1
 ENV RAILS_ENV=production
 ENV SECRET_KEY_BASE=IGNORE_ME
-RUN bundle add pg --version=1.5.6
 RUN bin/yarn add @babel/plugin-proposal-private-property-in-object
 RUN cd $APP_DIR && \
     PROD_DATABASE_ADAPTER=postgresql bundle exec rails assets:precompile
