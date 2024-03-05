@@ -19,6 +19,11 @@ See [docs/ApplicationCreation.md](docs/ApplicationCreation.md) for information
 on how this application as generated with the "projectblacklight/spotlight"
 Rails application generator.
 
+## Local Development Environment
+
+Instructions for building and running Spotlight locally can be found in
+[docs/LocalDevelopmentEnvironment.md](docs/LocalDevelopmentEnvironment.md).
+
 ## Building the Docker Image for K8s Deployment
 
 The following procedure uses the Docker "buildx" functionality and the
