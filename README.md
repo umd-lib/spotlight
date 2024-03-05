@@ -82,6 +82,11 @@ Creating the “spotlight” Docker image for Kubernetes
 
    The Docker images will be automatically pushed to the Nexus.
 
+## License
+
+See the [LICENSE](LICENSE.md) file for license rights and limitations
+(Apache 2.0).
+
 ----
 
 [k8s-spotlight]: https://github.com/umd-lib/k8s-spotlight
