@@ -29,8 +29,8 @@ workstation:
 
 2. Checkout the appropriate Git tag, branch, or commit for the Docker image.
 
-3. Switch out of the application and back in to enable RVM to configure the
-   Ruby and gemset:
+3. Switch out of the application and back in to enable RVM to configure
+   Ruby and the gemset:
 
     ```zsh
     $ cd ..

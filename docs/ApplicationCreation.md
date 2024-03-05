@@ -103,7 +103,7 @@ The following steps assumes “rvm” is being used.
 
    This created a “spotlight” subdirectory.
 
-   When asked Would you like to create an initial administrator? answered `n`.
+   When asked `Would you like to create an initial administrator?` answered `n`.
 
 10. Switched into the “spotlight” subdirectory:
 
@@ -111,29 +111,15 @@ The following steps assumes “rvm” is being used.
     $ cd spotlight
     ```
 
-11. Switched the default Git branch from “master” to “main”, in accordance with
-    SSDR policies:
+11. Pinned the “blacklight-spotlight” gem to “v3.5.0.3”:
 
-    ```zsh
-    $ git branch -m main
-    ```
-
-12. Committed the initial project files:
-
-    ```zsh
-    $ git add .
-    $ git commit
-    ```
-
-13. Pinned the “blacklight-spotlight” gem to “v3.5.0.3”:
-
-    13.1.  Edit the “Gemfile”:
+    11.1.  Edited the “Gemfile”:
 
     ```zsh
     $ vi Gemfile
     ```
 
-    and change the line:
+    and changed the line:
 
     ```text
     gem 'blacklight-spotlight', path: '../spotlight-app-generator/'
@@ -145,28 +131,15 @@ The following steps assumes “rvm” is being used.
     gem 'blacklight-spotlight', '= 3.5.0.3'
     ```
 
-    13.2) Run bundler to install the gem version:
+    11.2. Ran bundler to install the gem version:
 
     ```zsh
     $ bundle install
     ```
 
-    13.3) Commit the changes to Git:
+12. Set up then RVM Ruby/gemset configuration files:
 
-    ```zsh
-    $ git add Gemfile Gemfile.lock
-    $ git commit
-    ```
-
-14. Checked out a “feature/LIBWEB-6027” branch:
-
-    ```zsh
-    $ git checkout -b feature/LIBWEB-6027
-    ```
-
-15. Set up RVM Ruby/gemset configuration files:
-
-    15.1. Created “.ruby-version” and “.ruby-gemset” files to specify the Ruby
+    12.1. Created “.ruby-version” and “.ruby-gemset” files to specify the Ruby
           and gemset to use with RVM:
 
     ```zsh
@@ -174,35 +147,30 @@ The following steps assumes “rvm” is being used.
     $ printf "spotlight\n" > .ruby-gemset
     ```
 
-    15.2. Ran “bundle install” to populate the “spotlight” gemset:
-
-    ```zsh
-    $ bundle install
-    ```
-
-    15.3. Switched out of the directory and back in (not sure why this is
-          necessary):
+    12.2. Switched out of the directory and back in to enable RVM to configure
+          Ruby and the gemset:
 
     ```zsh
     $ cd ..
     $ cd spotlight
     ```
 
-    15.4. Committed the changes:
-
-    ```zsh
-    $ git add -f .ruby-version .ruby-gemset
-    $ git commit
-    ```
-
-16. Installed the gems (for local development):
+13. Installed the gems (for local development):
 
     ```zsh
     $ bundle config without production
     $ bundle install
     ```
 
-17. Ran the database migrations, and committed the resulting changes to the
+14. Switched out of the directory and back in (not sure why this step is
+    necessary):
+
+    ```zsh
+    $ cd ..
+    $ cd spotlight
+    ```
+
+15. Ran the database migrations, and committed the resulting changes to the
     “db/schema.rb” file:
 
     ```zsh
@@ -212,15 +180,9 @@ The following steps assumes “rvm” is being used.
     $ git commit
     ```
 
-18. Added a “LICENSE.md” file containing the Apache License v2.0, in accordance
+16. Added a “LICENSE.md” file containing the Apache License v2.0, in accordance
     with SSDR policy (copied the actual file from the
-    <https://github.com/umd-lib/reciprocal-borrowing> repository), and
-    committed the file:
-
-    ```zsh
-    $ git add LICENSE.md
-    $ git commit
-    ```
+    <https://github.com/umd-lib/reciprocal-borrowing> repository).
 
 ----
 
