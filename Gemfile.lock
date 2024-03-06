@@ -347,6 +347,7 @@ GEM
     paper_trail (12.3.0)
       activerecord (>= 5.2)
       request_store (~> 1.1)
+    pg (1.5.6)
     popper_js (1.16.1)
     public_suffix (5.0.4)
     puma (5.6.8)
@@ -558,6 +559,7 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.3)
   openseadragon (>= 0.2.0)
+  pg (= 1.5.6)
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.7, >= 6.1.7.7)
