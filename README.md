@@ -46,7 +46,7 @@ Creating the “spotlight” Docker image for Kubernetes
    directory:
 
     ```zsh
-    $ git clone git@github.com:dsteelma-umd/spotlight.git
+    $ git clone git@github.com:umd-lib/spotlight.git
     $ cd spotlight
     ```
 
