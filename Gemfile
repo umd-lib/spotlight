@@ -31,6 +31,11 @@ gem 'bootsnap', '>= 1.4.4', require: false
 # Use Postgres in production
 gem 'pg', '= 1.5.6', group: :production
 
+# Add OAI-PMH item upload
+# See https://github.com/projectblacklight/spotlight/wiki/Resource-Scenarios and
+# https://github.com/harvard-lts/spotlight-oaipmh-resources
+gem 'spotlight-oaipmh-resources', git: 'https://github.com/harvard-lts/spotlight-oaipmh-resources', tag: 'v3.0.4'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
