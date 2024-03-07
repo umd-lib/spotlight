@@ -335,10 +335,10 @@ ActiveRecord::Schema.define(version: 2024_03_01_165626) do
     t.datetime "indexed_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string "external_id"
     t.binary "metadata"
     t.integer "index_status"
     t.integer "upload_id"
-    t.string "external_id"
     t.index ["index_status"], name: "index_spotlight_resources_on_index_status"
     t.index ["upload_id"], name: "index_spotlight_resources_on_upload_id"
   end
