@@ -58,7 +58,7 @@ RUN cd $APP_DIR && \
 COPY --chown=$UID:$GID . $APP_DIR
 
 # Copy Rails application start scripts
-COPY --chown=app:app docker_config/spotlight/ $APP_DIR
+COPY --chown=app:app docker_config/spotlight/* $APP_DIR
 
 # RAILS_RELATIVE_URL_ROOT and SCRIPT_NAME are only needed if application is
 # running on a URL subpath

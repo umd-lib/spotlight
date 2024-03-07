@@ -38,6 +38,10 @@ gem 'spotlight-oaipmh-resources', git: 'https://github.com/harvard-lts/spotlight
 
 gem 'delayed_job_active_record'
 
+# Required because "rexml" is no longer included in Ruby 3
+# See https://github.com/Shopify/bootsnap/issues/325
+gem 'rexml'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
