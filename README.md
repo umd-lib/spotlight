@@ -24,6 +24,10 @@ Rails application generator.
 Instructions for building and running Spotlight locally can be found in
 [docs/LocalDevelopmentEnvironment.md](docs/LocalDevelopmentEnvironment.md).
 
+## Multi-item Uploads
+
+See [docs/Multi-ItemUploads.md](docs/Multi-itemUploads.md).
+
 ## Building the Docker Image for K8s Deployment
 
 The following procedure uses the Docker "buildx" functionality and the
