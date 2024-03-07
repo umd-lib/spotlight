@@ -26,7 +26,11 @@ Instructions for building and running Spotlight locally can be found in
 
 ## Multi-item Uploads
 
-See [docs/Multi-ItemUploads.md](docs/Multi-itemUploads.md).
+See [docs/MultiItemUploads.md](docs/MultiItemUploads.md)
+
+## OAI-PMH Uploads
+
+See [docs/OaiPmhUploads.md](docs/OaiPmhUploads.md)
 
 ## Building the Docker Image for K8s Deployment
 
