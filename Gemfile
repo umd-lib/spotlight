@@ -36,6 +36,8 @@ gem 'pg', '= 1.5.6', group: :production
 # https://github.com/harvard-lts/spotlight-oaipmh-resources
 gem 'spotlight-oaipmh-resources', git: 'https://github.com/harvard-lts/spotlight-oaipmh-resources', tag: 'v3.0.4'
 
+gem 'delayed_job_active_record'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

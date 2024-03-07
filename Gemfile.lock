@@ -187,6 +187,11 @@ GEM
     crass (1.0.6)
     date (3.3.4)
     declarative (0.0.20)
+    delayed_job (4.1.11)
+      activesupport (>= 3.0, < 8.0)
+    delayed_job_active_record (4.1.8)
+      activerecord (>= 3.0, < 8.0)
+      delayed_job (>= 3.0, < 5)
     deprecation (1.1.0)
       activesupport
     devise (4.9.3)
@@ -577,6 +582,7 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   coffee-rails (~> 4.2)
+  delayed_job_active_record
   devise
   devise-guests (~> 0.8)
   devise_invitable
