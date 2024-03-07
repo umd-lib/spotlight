@@ -128,6 +128,7 @@ Rails.application.configure do
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
   # Sets SMTP mailing options
+  # default host for mailer
   config.action_mailer.default_options = { from: ENV['SMTP_FROM_ADDRESS'] }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
@@ -140,4 +141,9 @@ Rails.application.configure do
   }
   # Only keep non-nil values
   config.action_mailer.smtp_settings.select! { |_k, v| v }
+
+  # Set the host in sent emails
+  if ENV['SERVER_HOSTNAME'].present?
+    config.action_mailer.default_url_options = { host: ENV['SERVER_HOSTNAME'], protocol: 'https://' }
+  end
 end
