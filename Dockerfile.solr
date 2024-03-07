@@ -2,4 +2,7 @@ ARG SOLR_VERSION=9.5.0
 
 FROM solr:${SOLR_VERSION}
 
-COPY --chown=solr ./solr /opt/solr-${SOLR_VERSION}/server/solr/configsets/blacklight-core
+# Need set SOLR_VERSION ARG (by mentioning it) because FROM clears it
+ARG SOLR_VERSION
+
+COPY --chown=solr ./solr/ /opt/solr-${SOLR_VERSION}/server/solr/configsets/blacklight-core
