@@ -90,6 +90,16 @@ Creating the “spotlight” Docker image for Kubernetes
 
    The Docker images will be automatically pushed to the Nexus.
 
+## Environment-specific Environment Variables
+
+The following environment=specific environment variables are used by the system
+ when running in Kubernetes. None of these variables are strictly necessary when
+running in the local development environment:
+
+* `SERVER_HOSTNAME` - The hostname of the server. Used for generating links in
+  the body of emails sent by the system.
+* `SMTP_FROM_ADDRESS` - The email address to use as the "From:" email address
+
 ## License
 
 See the [LICENSE](LICENSE.md) file for license rights and limitations
