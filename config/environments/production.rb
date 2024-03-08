@@ -26,7 +26,15 @@ Rails.application.configure do
 
   # Compress CSS using a preprocessor.
   # config.assets.css_compressor = :sass
-  config.assets.js_compressor = :uglifier
+
+  # UMD Customization
+  # Specifying "harmony: true" to fix a
+  # "Uglifier::Error: Unexpected token: keyword (const). To use ES6 syntax,
+  # harmony mode must be enabled with Uglifier.new(:harmony => true)." error
+  # when pre-compiling the assets in production.
+  # See https://github.com/AlexanderPavlenko/sprockets_uglifier_with_source_maps/issues/9#issuecomment-499217994
+  config.assets.js_compressor = Uglifier.new(harmony: true)
+  # End UMD Customization
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
@@ -118,4 +126,24 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+
+  # Sets SMTP mailing options
+  # default host for mailer
+  config.action_mailer.default_options = { from: ENV['SMTP_FROM_ADDRESS'] }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: ENV['SMTP_ADDRESS'],
+    port: ENV['SMTP_PORT'],
+    domain: ENV['SMTP_DOMAIN'],
+    user_name: ENV['SMTP_USER_NAME'],
+    password: ENV['SMTP_PASSWORD'],
+    authentication: ENV['SMTP_AUTHENTICATION'].present? ? ENV['SMTP_AUTHENTICATION'].to_sym : nil
+  }
+  # Only keep non-nil values
+  config.action_mailer.smtp_settings.select! { |_k, v| v }
+
+  # Set the host in sent emails
+  if ENV['SERVER_HOSTNAME'].present?
+    config.action_mailer.default_url_options = { host: ENV['SERVER_HOSTNAME'], protocol: 'https://' }
+  end
 end
