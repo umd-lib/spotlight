@@ -15,13 +15,35 @@ the "spotlight-oaipmh-resources" gem itself, see the
 * Repository: <https://github.com/harvard-lts/spotlight-oaipmh-resources>
 * Wiki: <https://github.com/harvard-lts/spotlight-oaipmh-resources/wiki>
 
+## Database Migration Issue
+
+After installing the "spotlight-oaipmh-resources" gem as outlined in the
+installation steps below, an issue arose where the `rails db:migrate`
+command failed because of a database migration within the
+"spotlight-oaipmh-resources" gem. Specifically the
+<https://github.com/harvard-lts/spotlight-oaipmh-resources/blob/v3.0.4/db/migrate/20220716014845_add_external_id_to_spotlight_resources.rb>
+migration failed because the "spotlight_resources" table did not exist.
+
+This appears to be caused by an ordering issue in the database migrations. In
+the "spotlight-oaipmh-resources" gem, the migrations are dated *before* the
+migrations for this application, and the migrations are run in timestamp order.
+
+The workaround adopted for this implementation was to move the creation of
+the "spotlight_resources" table into a
+"db/migrate/19701231000000_create_spotlight_resources.rb", with a timestamp
+of December 31, 1970, to place it before any other migration (December 31 was
+chosen, instead of January 1, 1970, in case there is any need to place
+additional migrations earlier).
+
+It is not clear if a better way exists to fix this issue.
+
 ## Current Status
 
 The "spotlight-oaipmh-resources" gem has been installed, and the functionality
 is available under the "From external resource" tab in the "Add Items" panel
 of the Spotlight administrative interface.
 
-While the functionality is present, if has proven difficult to actually harvest
+While the functionality is present, it has proven difficult to actually harvest
 and data. The form has the following fields
 
 * Type: A drop-down containing "MODS" and "Solr"
