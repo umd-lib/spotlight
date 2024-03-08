@@ -98,7 +98,24 @@ running in the local development environment:
 
 * `SERVER_HOSTNAME` - The hostname of the server. Used for generating links in
   the body of emails sent by the system.
-* `SMTP_FROM_ADDRESS` - The email address to use as the "From:" email address
+* Email-related
+  * `SMTP_FROM_ADDRESS` - The email address to use as the "From:" email address
+  * `SMTP_ADDRESS` - hostname of the SMTP server
+  * `SMTP_PORT` - port of the SMTP server
+  * Other environment variables (`SMTP_DOMAIN`, `SMTP_USER_NAME`,
+    `SMTP_PASSWORD`, and `SMTP_AUTHENTICATION`) are not typically needed.
+* Database-related (for Postgres, in production)
+  * `PROD_DATABASE_ADAPTER` - The database adapter for production, typically
+    "postgresql"
+  * `PROD_DATABASE_NAME` - The name of the database, typically "spotlight"
+  * `PROD_DATABASE_ENCODING` - the database encoding, typically "utf-8"
+  * `PROD_DATABASE_USERNAME` - the username for the database, typically
+    "spotlight"
+  * `PROD_DATABASE_PASSWORD` - the password for the database user
+  * `PROD_DATABASE_HOST` - The hostname of the database
+  * `PROD_DATABASE_PORT` - The port the database runs on, typically "5432" for
+     Postgres
+  * `PROD_DATABASE_POOL` - The size of the database pool, typically "10"
 
 ## License
 
