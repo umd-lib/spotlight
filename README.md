@@ -1,5 +1,8 @@
 # Spotlight
 
+> [!WARNING]
+> This repository is archived.
+
 Rails application utilizing the Blacklight "spotlight" plugin
 (<https://github.com/projectblacklight/spotlight>) to showcase digital
 collection resources.
